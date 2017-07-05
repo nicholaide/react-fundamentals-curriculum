@@ -22,7 +22,7 @@ class ZipCode extends React.Component {
     return (
       <div 
         className='zipcode-container'
-        style={{flexDirection: this.props.direction}}>
+        style={{flexDirection: this.props.direction}}>    
         <input
           className='form-control'
           onChange={this.handleUpdateZipcode}
