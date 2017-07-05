@@ -8,9 +8,16 @@ var Home = require('./Home');
 class App extends React.Component {
   render() {
     return (
-      <div>
-        Hello Weather World!
-      </div>
+      <Router>
+        <div className='container'>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route render={function () {
+              return <p>Not Found</p>
+            }}/>
+          </Switch>          
+        </div>
+      </Router>
     )
   }
 }
