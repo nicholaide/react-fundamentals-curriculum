@@ -11,8 +11,8 @@ class Home extends React.Component {
           <h1 className='header'>Enter a City and State</h1>    
           <ZipCode
             direction='column'
-            onSubmitZipcode={function(){}}
-            onUpdateZipcode={function(){}}
+            onSubmitZipcode={this.handleSubmitZipcode}
+            onUpdateZipcode={this.handleUpdateZipcode}
             zipcode={123}
           />
         </div>

@@ -6,16 +6,25 @@ class ZipCode extends React.Component {
     super(props);
     this.state = {
       zipcode: '75039'
-    }; 
+    };
+    
+    this.handleUpdateZipcode = this.handleUpdateZipcode.bind(this);
+    this.handleSubmitZipcode = this.handleSubmitZipcode.bind(this);   
   }
   
   
-  handleSubmitZipcode () {
+  handleSubmitZipcode (event) {
+    event.preventDefault();
     
   }
   
-  handleUpdateZipcode() {
-    
+  handleUpdateZipcode(event) {
+    var value = event.target.value;
+    this.setState(function () {
+      return {
+        zipcode: value
+      }
+    });
   }
   
   render() {
