@@ -28,7 +28,6 @@ class Header extends React.Component {
         <ZipCode
           direction='column'
           onSubmitZipcode={function(){}}
-          onUpdateZipcode={function(){}}
           zipcode={123}
         />
       </div>
