@@ -1,6 +1,6 @@
+var api = require('../utils/api');
 var React = require('react');
 var PropTypes = require('prop-types');
-var api = require('../utils/api');
 var ReactRouter = require('react-router-dom');
 
 class ZipCode extends React.Component {
