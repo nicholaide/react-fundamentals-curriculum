@@ -1,6 +1,7 @@
 var React = require('react');
 var PropTypes = require('prop-types');
 var api = require('../utils/api');
+var ReactRouter = require('react-router-dom');
 
 class ZipCode extends React.Component {
   constructor(props) {
@@ -15,10 +16,14 @@ class ZipCode extends React.Component {
   
   
   handleSubmitZipcode (event) {
-    api.getCurrentWeather(this.state.zipcode)
-      .then(function (res) {
-        console.log(res)
-      })
+    this.props.onSubmitZipcode(this.state.zipcode)
+    
+    this.setState(function () {
+      return {
+        zipcode: '', 
+      } 
+    });
+    
   }
   
   handleUpdateZipcode(event) {
@@ -31,6 +36,7 @@ class ZipCode extends React.Component {
   }
   
   render() {
+    console.log('PROPS', this.props)
     return (
       <div 
         className='zipcode-container'
