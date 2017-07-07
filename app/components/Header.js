@@ -10,15 +10,6 @@ class Header extends React.Component {
     }; 
   }
   
-  
-  handleSubmitZipcode () {
-    
-  }
-  
-  handleUpdateZipcode() {
-    
-  }
-  
   render() {
     return (
       <div 
@@ -27,9 +18,7 @@ class Header extends React.Component {
         <h1 className='header-text'>Weather App</h1>
         <ZipCode
           direction='column'
-          onSubmitZipcode={function(){}}
-          zipcode={123}
-        />
+          zipcode={75039} />
       </div>
     )     
   }

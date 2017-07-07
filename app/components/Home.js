@@ -3,6 +3,12 @@ var Header = require('./Header');
 var ZipCode = require('./ZipCode');
 
 class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    
+    this.history = this.props.history
+  }
+  
   render() {
     return (
       <div className='container'>
@@ -11,9 +17,7 @@ class Home extends React.Component {
           <h1 className='header'>Enter a City and State</h1>    
           <ZipCode
             direction='column'
-            onSubmitZipcode={function(){}}
-            zipcode={123}
-          />
+            zipcode={75039} />
         </div>
       </div>
     )

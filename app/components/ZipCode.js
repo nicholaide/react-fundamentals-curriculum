@@ -2,6 +2,8 @@ var api = require('../utils/api');
 var React = require('react');
 var PropTypes = require('prop-types');
 var ReactRouter = require('react-router-dom');
+var Link = require('react-router-dom').Link;
+var Route = ReactRouter.Route;
 
 class ZipCode extends React.Component {
   constructor(props) {
@@ -36,7 +38,6 @@ class ZipCode extends React.Component {
   }
   
   render() {
-    console.log('PROPS', this.props)
     return (
       <div 
         className='zipcode-container'
@@ -48,13 +49,14 @@ class ZipCode extends React.Component {
           type='text'
           value={this.state.zipcode} 
         />
-        <button
-          type='button'
-          style={{margin: 10}}
+        <Link
           className='btn btn-success'
-          onClick={this.handleSubmitZipcode} >
-            Get Weather
-        </button>
+          to={{
+            pathname: '/forecast',
+            search: '?city=' + this.state.zipcode
+          }}>
+          Battle
+        </Link>
       </div>
     )     
   }
