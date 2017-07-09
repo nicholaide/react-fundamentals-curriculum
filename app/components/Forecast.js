@@ -9,7 +9,7 @@ function DayItem (props) {
   var date = getDate(props.day.dt);
   var icon = props.day.weather[0].icon;
   return (
-    <div className='dayContainer'>
+    <div onClick={props.onClick} className='dayContainer'>
       <img className='weather' src={'../app/images/weather-icons/' + icon + '.svg'} alt='Weather' />
       <h2 className='subheader'>{date}</h2>
     </div>
@@ -25,6 +25,7 @@ class Forecast extends React.Component {
     }
     
     this.makeRequest = this.makeRequest.bind(this); 
+		this.handleClick = this.handleClick.bind(this);
   }
   
   componentDidMount() {
@@ -55,6 +56,13 @@ class Forecast extends React.Component {
       }.bind(this))
       
     } //makeRequest
+
+	handleClick(city) {
+		this.props.history.push({
+			pathname:  '/details/' + this.city,
+			state: city,
+		});
+	}
       
   render() {
     return (
@@ -64,8 +72,8 @@ class Forecast extends React.Component {
             <h1 className='forecast-header'>{this.city}</h1>
             <div className='forecast-container'>
               {this.state.forecastData.list.map(function (listItem) {
-                return <DayItem key={listItem.dt} day={listItem} />
-              })}
+                return <DayItem onClick={this.handleClick.bind(this, listItem)} key={listItem.dt} day={listItem} />
+              },this)}
             </div>
           </div>
 
